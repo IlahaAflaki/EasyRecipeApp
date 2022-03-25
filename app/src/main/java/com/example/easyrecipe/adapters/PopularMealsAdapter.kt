@@ -3,11 +3,11 @@ package com.example.easyrecipe.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.load
 import com.example.easyrecipe.databinding.PopularItemsBinding
 import com.example.easyrecipe.pojo.MealsByCategory
 
-class PopularMealsAdapter(): RecyclerView.Adapter<PopularMealsAdapter.PopularMealViewHolder>(){
+class PopularMealsAdapter: RecyclerView.Adapter<PopularMealsAdapter.PopularMealViewHolder>(){
     lateinit var onItemClick:((MealsByCategory) -> Unit)
     private var mealsList = ArrayList<MealsByCategory>()
 
@@ -21,9 +21,10 @@ class PopularMealsAdapter(): RecyclerView.Adapter<PopularMealsAdapter.PopularMea
      }
 
     override fun onBindViewHolder(holder: PopularMealViewHolder, position: Int) {
-        Glide.with(holder.itemView)
-            .load(mealsList[position].strMealThumb)
-            .into(holder.binding.imgPopularMealItem)
+        val url = mealsList.getOrNull(position)?.strMealThumb
+        holder.binding.imgPopularMealItem.load(url){
+            crossfade(true)
+        }
 
         holder.itemView.setOnClickListener{
             onItemClick.invoke(mealsList[position])

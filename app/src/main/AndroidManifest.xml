@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EasyRecipe"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CategoryMealsActivity"
             android:exported="false" />
         <activity

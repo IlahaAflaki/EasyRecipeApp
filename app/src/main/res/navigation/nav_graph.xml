@@ -9,7 +9,8 @@
         android:id="@+id/homeFragment"
         android:name="com.example.easyrecipe.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.easyrecipe.fragments.FavoritesFragment"

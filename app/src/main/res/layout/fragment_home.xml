@@ -97,10 +97,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_view_meals_popular"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="@dimen/_90sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        tools:itemCount="10"
+        android:orientation="horizontal"
+        tools:listitem="@layout/popular_items"
+        android:paddingStart="@dimen/_25sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_over_popular" />
 
@@ -114,7 +119,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_17ssp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/rec_view_meals_popular"
+        app:layout_constraintStart_toStartOf="@id/tv_over_popular"
         app:layout_constraintTop_toBottomOf="@id/rec_view_meals_popular" />
 
     <androidx.cardview.widget.CardView
@@ -124,11 +129,15 @@
         android:layout_marginEnd="@dimen/_25sdp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardUseCompatPadding="true"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_categories">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
+            app:spanCount="3"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/category_item"
             android:layout_height="match_parent"
             android:scrollbars="none"
             android:id="@+id/rec_view_categories"/>

@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.easyrecipe.R
 import com.example.easyrecipe.activities.CategoryMealsActivity
 import com.example.easyrecipe.activities.MainActivity
 import com.example.easyrecipe.activities.MealActivity
+import com.example.easyrecipe.activities.SearchActivity
 import com.example.easyrecipe.adapters.CategoriesAdapter
 import com.example.easyrecipe.adapters.PopularMealsAdapter
 import com.example.easyrecipe.databinding.FragmentHomeBinding
@@ -67,8 +70,16 @@ class HomeFragment : Fragment() {
         observeCategoriesLiveData()
 
         onCategoryClick()
+        setClickListeners()
 
+    }
 
+    private fun setClickListeners(){
+        binding.apply {
+            imgSearch.setOnClickListener {
+                startActivity(Intent(requireActivity(),SearchActivity::class.java))
+            }
+        }
     }
 
     private fun onCategoryClick() {

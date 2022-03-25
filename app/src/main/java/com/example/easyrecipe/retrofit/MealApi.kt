@@ -10,17 +10,20 @@ import retrofit2.http.Query
 interface MealApi {
 
     @GET("random.php")
-    fun getRandomMeal():Call<MealList>
+    fun getRandomMeal(): Call<MealList>
 
     @GET("lookup.php")
-    fun getMealDetails(@Query("i") id:String) : Call<MealList>
+    fun getMealDetails(@Query("i") id: String): Call<MealList>
 
     @GET("filter.php?")
-    fun getPopularItems(@Query("c") categoryName:String): Call<MealsByCategoriesList>
+    fun getPopularItems(@Query("c") categoryName: String): Call<MealsByCategoriesList>
 
-    @GET ("categories.php")
-    fun getCategories() :Call<CategoryList>
+    @GET("categories.php")
+    fun getCategories(): Call<CategoryList>
+
+    @GET("search.php")
+    suspend fun searchMeal(@Query("s") query: String): MealList
 
     @GET("filter.php")
-    fun getMealsByCategory(@Query("c") categoryName: String) : Call<MealsByCategoriesList>
+    fun getMealsByCategory(@Query("c") categoryName: String): Call<MealsByCategoriesList>
 }
