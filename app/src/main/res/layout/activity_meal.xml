@@ -115,7 +115,7 @@
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_100sdp"
-                android:text="fdgvbhgdhvbhdggfbdffffffffffddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+                tools:text="fdgvbhgdhvbhdggfbdffffffffffddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
                 app:layout_constraintStart_toStartOf="@id/tv_instructions"
                 app:layout_constraintTop_toBottomOf="@id/tv_instructions" />
 
